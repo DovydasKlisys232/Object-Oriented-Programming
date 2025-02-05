@@ -1,13 +1,21 @@
 #used to execute all makefile instructions
-all: divide.exe string.exe sum1.exe sum2.exe string2.exe
+all: hello.exe divide.exe float_div.exe string.exe sum1.exe sum2.exe string2.exe
 
 #cleans out the bin folder containing the executables
 clean:
 	rm ../../bin/*.exe
 
+#instructions for creating hello.exe executable file
+hello.exe: hello.cpp
+	g++ -o ../../bin/hello.exe hello.cpp
+
 #instructions for creating divide executable file
 divide.exe: divide.cpp
 	g++ -o ../../bin/divide.exe divide.cpp
+
+#instructions for creating float_div executable file
+float_div.exe: float_div.cpp
+	g++ -o ../../bin/float_div.exe float_div.cpp
 
 #instructions for creating string executable file
 string.exe: string.cpp
