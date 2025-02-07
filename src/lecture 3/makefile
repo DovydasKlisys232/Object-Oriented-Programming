@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: type-safe.exe const_mod.exe
+all: type-safe.exe const_mod.exe two_ints.exe two_floats.exe seq_ints.exe
 
 #cleans out the bin folder containing the executables
 clean:
@@ -25,3 +25,32 @@ run02:
 	../../bin/const_mod.exe
 	@echo
 
+#instructions for creating two_ints.exe executable file
+two_ints.exe: two_ints.cpp
+	g++ -o ../../bin/two_ints.exe two_ints.cpp
+#instruction to execute the two_ints.exe file
+run03: 
+	@echo ---------------------
+	@echo Running two_ints.exe
+	../../bin/two_ints.exe
+	@echo
+
+#instructions for creating two_floats.exe executable file
+two_floats.exe: two_floats.cpp
+	g++ -o ../../bin/two_floats.exe two_floats.cpp
+#instruction to execute the two_floats.exe file
+run04: 
+	@echo ---------------------
+	@echo Running two_floats.exe
+	../../bin/two_floats.exe
+	@echo
+
+#instructions for creating seq_ints.exe executable file
+seq_ints.exe: seq_ints.cpp
+	g++ -o ../../bin/seq_ints.exe seq_ints.cpp
+#instruction to execute the seq_ints.exe file
+run05: 
+	@echo ---------------------
+	@echo Running seq_ints.exe
+	../../bin/seq_ints.exe
+	@echo
