@@ -39,3 +39,8 @@ int main()
 
     return 0;
 }
+
+//when comparing both int and float programs most values were calculated correctly.
+//The only difference is the ratio.
+//the integer program outputs only the amount of whole numbers from the division
+//the float program outputs the answer as a decimal if no whole numbers enter the divided number.
