@@ -25,6 +25,8 @@ int main()
     vector<int> integers;
     int val;
 
+    cout<<"please enter three integers.\n";
+
     for(int i=0;i<3;i++)
     {
         cin>>val;
