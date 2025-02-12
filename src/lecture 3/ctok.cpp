@@ -1,19 +1,19 @@
 /*
 Student: Dovydas Klisys
 ID: B00165094
-Date: 8th feb 2025
-Purpose: This program is a modified version of ctod_v1.cpp but it incorporates a function for converting
-the value entered (celsius to fahrenheit or fahrenheit to celsius) depending on the unit entered*/
+Date: 11th feb 2025
+Purpose: This program will convert a celsius input into kelvin. It utilizes a function to perform the conversion. There will
+be no negative values for kelvin.*/
 
 #include<iostream>
 
 using namespace std;
 
 //conversion function declared
-float convfc( float temperature, char unit );
+float convkc( float temperature, char unit );
 
 //variables are first declared
-//program keeps running until user entered an incorrect temperature value or unit (not c or f)
+//program keeps running until user entered an incorrect temperature value or unit (not c or k)
 //will output the reult of the conversion
 int main()
 {
@@ -21,20 +21,42 @@ int main()
     char unit;
     while(cin>>val>>unit)
     {
-        cout<<convfc(val, unit)<<"\n";
+        float result = convkc(val, unit);
+        if(result != -1)
+        {
+            cout<<convkc(val, unit)<<"\n";
+        }
+        else
+        {
+            cout <<"Invalid input.\n";
+        }
     }
 }
 
-//function that will convert the temperature entered to either fahrenheit or celsius
-float convfc( float temperature, char unit )
+//function that will convert the temperature entered to either kelvin or celsius
+float convkc( float temperature, char unit )
 {
-    if(unit == 'c' || unit == 'C')
+    if(unit == 'k' || unit == 'K')
     {
-        return (temperature * 1.8) + 32;
+        if(temperature >= 0)
+        {
+            return temperature - 273.15;
+        }
+        else
+        {
+            return 0;
+        }
     }
-    else if(unit == 'f' || unit == 'F')
+    else if(unit == 'c' || unit == 'C')
     {
-        return (temperature - 32) / 1.8;
+        if(temperature >= -273.15)
+        {
+        return temperature + 273.15;
+        }
+        else
+        {
+            return 0;
+        }
     }
     else{
         return 0;

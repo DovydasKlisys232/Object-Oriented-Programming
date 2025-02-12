@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: type-safe.exe const_mod.exe two_ints.exe two_floats.exe seq_ints.exe seq_string.exe tiny_calc.exe ctof_v1.exe ctof_v2.exe
+all: type-safe.exe const_mod.exe two_ints.exe two_floats.exe seq_ints.exe seq_string.exe tiny_calc.exe ctof_v1.exe ctof_v2.exe ctok.exe
 
 #cleans out the bin folder containing the executables
 clean:
@@ -93,4 +93,14 @@ run09:
 	@echo ---------------------
 	@echo Running ctof_v2.exe
 	../../bin/ctof_v2.exe
+	@echo
+
+#instructions for creating ctok.exe executable file
+ctok.exe: ctok.cpp
+	g++ -o ../../bin/ctok.exe ctok.cpp
+#instruction to execute the ctok.exe file
+run10: 
+	@echo ---------------------
+	@echo Running ctok.exe
+	../../bin/ctok.exe
 	@echo
