@@ -24,7 +24,7 @@ int main()
         float result = convkc(val, unit);
         if(result != -1)
         {
-            cout<<convkc(val, unit)<<"\n";
+            cout<<result<<"\n";
         }
         else
         {
@@ -44,7 +44,8 @@ float convkc( float temperature, char unit )
         }
         else
         {
-            return 0;
+            cerr<<"Can't have a negative kelvin.\n";
+            throw 1;
         }
     }
     else if(unit == 'c' || unit == 'C')
@@ -55,7 +56,8 @@ float convkc( float temperature, char unit )
         }
         else
         {
-            return 0;
+            cerr<<"Can't have a negative kelvin.\n";
+            throw 1;
         }
     }
     else{

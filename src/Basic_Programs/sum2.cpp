@@ -6,7 +6,7 @@ the main function.*/
 
 using namespace std;
 
-double sum(double val1, double val2, double val3);  //decleration of the sum function
+double sum(double val1, double val2);  //decleration of the sum function
 
 int main()
 {
@@ -17,12 +17,12 @@ int main()
     cout<<"Please enter three numbers.\n";  //prompts user to enter three values
     cin>>val1>>val2>>val3;   //user can enter three values to be stored as doubles
 
-    cout<<"The sum is equal to "<< sum(val1, val2, val3);  //prints out the sum
+    cout<<"The sum is equal to "<< sum(sum(val1,val2),val3);  //prints out the sum
     return 0;   //program ends without errors
 }
 
 //function to add the three double ints and produce a sum
-double sum(double val1, double val2, double val3)
+double sum(double val1, double val2)
 {
-    return val1 + val2 + val3; //this will return the three values added together
+    return val1 + val2; //this will return the three values added together
 }

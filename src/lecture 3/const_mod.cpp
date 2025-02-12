@@ -16,6 +16,7 @@ int main()
     int val;
     char unit;
     while (cin >> val >> unit) {
+        cm_per_inch *= 2.0;
         if (unit == 'i') {
             cout << val << "in == " << val*cm_per_inch << "cm\n";
         } 

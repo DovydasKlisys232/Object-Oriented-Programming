@@ -28,7 +28,8 @@ int main()
         {
             cout<<"fahrenheit to celsius: "<<(val - 32) / 1.8<<"\n";
         }
-        else{
+        else
+        {
             return 0;
         }
     }
