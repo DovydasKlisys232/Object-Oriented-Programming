@@ -31,10 +31,9 @@ int main()
     {
         distances.push_back(dis);
     }
-    cout<<"Total distance: "<<total(distances)<<"\n";
-    cout<<"Mean: "<<mean(distances)<<"\n";
-    cout<<"Smallest: "<<smallest(distances)<<"\n";
-    cout<<"Largest: "<<largest(distances)<<"\n";
+    cout<<"Total distance: "<<total(distances)<<"\n"<<"Mean: "
+        <<mean(distances)<<"\n"<<"Smallest: "<<smallest(distances)<<"\n"
+        <<"Largest: "<<largest(distances)<<"\n";
     return 0;
 }
 
@@ -78,3 +77,5 @@ double mean(vector<double> distances)
 {
     return total(distances) / distances.size();
 }
+
+//Resource: https://www.w3schools.com/cpp/cpp_examples.asp

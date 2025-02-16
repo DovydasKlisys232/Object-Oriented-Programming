@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: two_city.exe temp_stats.exe guess.exe name-value_v1.exe name-value_v2.exe
+all: two_city.exe temp_stats.exe guess.exe name-value_v1.exe name-value_v2.exe name-value_v3.exe
 
 #cleans out the bin folder containing the executables
 clean:
@@ -53,4 +53,14 @@ run05:
 	@echo ---------------------
 	@echo Running name-value_v2.exe
 	../../bin/name-value_v2.exe
+	@echo
+
+#instructions for creating name-value_v3.exe executable file
+name-value_v3.exe: name-value_v3.cpp
+	g++ -o ../../bin/name-value_v3.exe name-value_v3.cpp
+#instruction to execute the name-value_v3.exe file
+run06: 
+	@echo ---------------------
+	@echo Running name-value_v3.exe
+	../../bin/name-value_v3.exe
 	@echo

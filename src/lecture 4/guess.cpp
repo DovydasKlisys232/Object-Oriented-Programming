@@ -34,11 +34,10 @@ int guess()
     int high = 100;
     int low = 1;
     char yn;
-    int result;
 
-    while(low <= high)
+    while(low != high)
     {
-        int mid = low + (high - low) / 2;
+        int mid = (low + high + 1) / 2;
 
         cout<<"Is your number below "<<mid<<"\n";
         cin>>yn;
@@ -48,20 +47,17 @@ int guess()
         }
         else if(tolower(yn) == 'n')
         {
-            low = mid + 1;
+            low = mid;
         }
         else
         {
             cerr<<"Invalid response\n";
             return 1;
         }
-        if(low == high)
-        {
-            result = mid;
-            break;
-        }
     }
 
-    return result;
+    return low;
 
 }
+
+//resource: https://www.w3schools.com/cpp/cpp_examples.asp

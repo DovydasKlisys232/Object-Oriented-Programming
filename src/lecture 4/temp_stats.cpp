@@ -7,6 +7,7 @@ It will calculate the mean and median of the temperatures and output these stats
 
 #include<iostream> //used for utilizing standard library functions
 #include<vector> //used for creating vectors 
+#include<algorithm> //used for utilizing the sort function
 
 using namespace std;
 
@@ -29,8 +30,8 @@ int main()
     {
         temps.push_back(temp);
     }
-    cout<<"Mean: "<<mean(temps)<<"\n";
-    cout<<"Median: "<<median(temps)<<"\n";
+    cout<<"Mean: "<<mean(temps)<<"\n"
+        <<"Median: "<<median(temps);
 
     return 0;
 }
@@ -49,6 +50,7 @@ double mean(vector<double> temps)
 //this function will calculate the median by determining if the list of numbers are even or odd
 double median(vector<double> temps)
 {
+    sort(temps.begin(), temps.end());
     if(temps.size() % 2 == 0)
     {
         return (temps[(temps.size() / 2) - 1] + temps[(temps.size() / 2)]) / 2.0;
@@ -58,3 +60,5 @@ double median(vector<double> temps)
         return temps[temps.size() / 2];
     }    
 }
+
+//Resource: https://www.w3schools.com/cpp/cpp_examples.asp
