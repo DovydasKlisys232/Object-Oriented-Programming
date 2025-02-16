@@ -93,3 +93,4 @@ void score(vector<string>& names, vector<int>& values, string user)
 }
 
 //resource: https://claude.ai/chat/e9dfd87f-3d4b-4f00-8a1c-1bed98c12f43
+//resource: https://www.w3schools.com/cpp/cpp_examples.asp

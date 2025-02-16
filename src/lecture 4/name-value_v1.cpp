@@ -72,3 +72,4 @@ bool isdouble(vector<string> names)
     return false;
 }
 
+//Resource: https://www.w3schools.com/cpp/cpp_examples.asp
