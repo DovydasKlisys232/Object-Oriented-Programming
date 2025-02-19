@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: exception.exe area_v1.exe area_v2.exe ctok.exe
+all: exception.exe area_v1.exe area_v2.exe ctok.exe n.exe
 
 #cleans out the bin folder containing the executables
 clean:
@@ -57,3 +57,10 @@ run05:
 	@echo Running roots.exe
 	../../bin/roots.exe
 	@echo
+
+#instructions for creating .exe executable file
+n.exe: n.cpp
+	g++ -o ../../bin/n.exe n.cpp
+#instruction to execute the n.exe file
+run06: 
+	../../bin/n.exe 2
