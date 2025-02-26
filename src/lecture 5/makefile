@@ -40,13 +40,15 @@ run03:
 
 #instructions for creating ctok.exe executable file
 ctok.exe: ctok.cpp
-	g++ -o ../../bin/ctok.exe ctok.cpp
+	g++ -g -o ../../bin/ctok.exe ctok.cpp
 #instruction to execute the ctok.exe file
 run04: 
 	@echo ---------------------
 	@echo Running ctok.exe
 	../../bin/ctok.exe
 	@echo
+debug02:
+	gdb ../../bin/ctok.exe
 
 #instructions for creating roots.exe executable file
 roots.exe: roots.cpp

@@ -65,7 +65,6 @@ int main()
             cerr<<"The inputs can not be used to produce a correct conversion.\n";
         }
     }
-
     return 0;
 }
 
