@@ -63,4 +63,4 @@ n.exe: n.cpp
 	g++ -o ../../bin/n.exe n.cpp
 #instruction to execute the n.exe file
 run06: 
-	../../bin/n.exe 2
+	../../bin/n.exe 4 

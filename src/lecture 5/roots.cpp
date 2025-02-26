@@ -39,11 +39,12 @@ int main()
 void quad(double a, double b, double c)
 {
     double det = pow(b,2)-(4*a*c);
-    if (det > 1)
+    if (det > 0)
     {
         double xmin = ((-b)-sqrt(det))/(2*a);
         double xmax = ((-b)+sqrt(det))/(2*a);
         cout<<"x is: "<<xmin<<" or "<<xmax<<"\n";
+        results(xmin,xmax);
     }
     else
     {
