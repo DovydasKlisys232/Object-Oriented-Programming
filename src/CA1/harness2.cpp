@@ -48,19 +48,19 @@ float from_euro(float amount, string currency)
     {
         throw bad_inputs();
     }
-    if(currency == "usd")
+    if(currency == "usd" || currency == "USD")
     {
         return amount * usd_per_euro;
     }
-    else if(currency == "stg")
+    else if(currency == "stg" || currency == "STG")
     {
         return amount * stg_per_euro;
     }
-    else if(currency == "jpy")
+    else if(currency == "jpy" || currency == "JPY")
     {
         return amount * jpy_per_euro;
     }
-    else if(currency == "cny")
+    else if(currency == "cny" || currency == "CNY")
     {
         return amount * cny_per_euro;
     }
@@ -76,19 +76,19 @@ float to_euro(float amount, string currency)
     {
         throw bad_inputs();
     }
-    if(currency == "usd")
+    if(currency == "usd" || currency == "USD")
     {
         return amount / usd_per_euro;
     }
-    else if(currency == "stg")
+    else if(currency == "stg" || currency == "STG")
     {
         return amount / stg_per_euro;
     }
-    else if(currency == "jpy")
+    else if(currency == "jpy" || currency == "JPY")
     {
         return amount / jpy_per_euro;
     }
-    else if(currency == "cny")
+    else if(currency == "cny" || currency == "CNY")
     {
         return amount / cny_per_euro;
     }
@@ -96,3 +96,5 @@ float to_euro(float amount, string currency)
         throw bad_inputs();
     }
 }
+
+/*resource: https://www.w3schools.com/cpp/default.asp*/
