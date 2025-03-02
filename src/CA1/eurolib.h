@@ -4,7 +4,7 @@
 #include<string>
 using namespace std;
 
-class bad_inputs{ }; //bad inout class used for throwing exceptions
+class bad_inputs{ }; //bad input class used for throwing exceptions
 float from_euro(float amount, string currency); //converting euro to a new currency function
 float to_euro(float amount, string currency); //convertting a currency to euro function
 //definitions for amount of the currency per 1 euro

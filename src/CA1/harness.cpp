@@ -12,6 +12,7 @@ different ways in the main function.*/
 using namespace std;
 
 //bad_input class and two functions declared
+class bad_inputs{ };
 float from_euro(float amount, string currency);
 float to_euro(float amount, string currency);
 
@@ -97,4 +98,4 @@ float to_euro(float amount, string currency)
     }
 }
 
-/*resource: https://www.w3schools.com/cpp/default.asp*/
+/*resource: https://www.w3schools.com/cpp/default.asp brightspace notes: https://brightspace.tudublin.ie/d2l/home/360152*/

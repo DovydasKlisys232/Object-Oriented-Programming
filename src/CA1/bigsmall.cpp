@@ -26,7 +26,7 @@ float to_euro(float amount, string currency);
 #define jpy_per_euro 158.05
 #define cny_per_euro 7.59 
 
-//first amount and currency variable are declared to store user's input
+//first, amount and currency variable are declared to store user's input
 //a vector is declared to save each of the user's inputs converted to euro
 //while the user keeps inputing, the program will try to convert the input of the specific currency to euro
 //it will save the outputs of the conversion into the vector and sort it from smallest to largest
