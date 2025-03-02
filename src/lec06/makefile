@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: 
+all: harness.exe swap.exe namespace.exe
 
 #cleans out the bin folder containing the executables
 clean:

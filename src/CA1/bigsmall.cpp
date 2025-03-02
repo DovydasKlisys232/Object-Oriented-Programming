@@ -32,7 +32,6 @@ float to_euro(float amount, string currency);
 //it will save the outputs of the conversion into the vector and sort it from smallest to largest
 //The program will output the conversion and state which euro output is smallest and which is largest, so far
 //If an error that is defined in the program occurs, the error class will be thrown and catched in the main function which will produce an error message
-
 int main()
 {
     float amount;

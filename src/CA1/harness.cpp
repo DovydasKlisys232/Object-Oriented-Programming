@@ -1,35 +1,100 @@
 /*
 Student: Dovydas Klisys
 ID: B00165094
-Date: 19 feb 2025
-Purpose: This program includes a skeleton version of the two functions needed for conversion. This is the first version
-of the program running. None of the outputs are correct, it is just used to develop the functions needed.*/
+Date: 20/2/25
+Purpose: This program tests two functions (to_euro() and from_euro()). The two functions are declared and defined. The functions are called in
+different ways in the main function.*/
 
 #include<iostream>
 #include<iomanip>
+#include"eurolib.h"
 
 using namespace std;
 
-float from_euro(float amount, string currency); // from_euro function decleration
-float to_euro(float amount, string currency); //to_euro function decleration
+//bad_input class and two functions declared
+float from_euro(float amount, string currency);
+float to_euro(float amount, string currency);
 
+//global variables
+#define usd_per_euro 1.04
+#define stg_per_euro 0.83
+#define jpy_per_euro 158.05
+#define cny_per_euro 7.59 
+
+//first the precision is set to two decimal points
+//the functions are tested with different inputs
 int main()
 {
     cout<<fixed<<setprecision(2);
-    cout<<from_euro(3.22, "USD")<<"\n";
-    cout<<to_euro(2.35, "CNY")<<"\n";
-    cout<<from_euro(2,"USD")<<"\n";
+    cout<<from_euro(3.22,"usd")<<"\n";
+    cout<<from_euro(2.77,"jpy")<<"\n";
+    cout<<from_euro(34.00,"stg")<<"\n";
+    cout<<from_euro(1.15,"cny")<<"\n";
+    cout<<from_euro(12.35,"stg")<<"\n";
+    cout<<from_euro(2.30,"stg")<<"\n";
+    cout<<to_euro(3.50,"usd")<<"\n";
+    cout<<to_euro(50.50,"jpy")<<"\n";
+    cout<<to_euro(5.70,"stg")<<"\n";
+    cout<<to_euro(10.25,"cny")<<"\n";
+    cout<<to_euro(1.00,"cny")<<"\n";
+    cout<<to_euro(335.00,"jpy")<<"\n";
     return 0;
 }
 
-//this function will convert an amount of euro to a certain currency
+//function for converting the euro input into a certain currency
 float from_euro(float amount, string currency)
 {
-    return 1.0;
+    if(amount < 0)
+    {
+        throw bad_inputs();
+    }
+    if(currency == "usd" || currency == "USD")
+    {
+        return amount * usd_per_euro;
+    }
+    else if(currency == "stg" || currency == "STG")
+    {
+        return amount * stg_per_euro;
+    }
+    else if(currency == "jpy" || currency == "JPY")
+    {
+        return amount * jpy_per_euro;
+    }
+    else if(currency == "cny" || currency == "CNY")
+    {
+        return amount * cny_per_euro;
+    }
+    else{
+        throw bad_inputs();
+    }
 }
 
-//converts an amount in a certain currency to euro
+//function for converting an input of a certain currency into euro
 float to_euro(float amount, string currency)
 {
-    return 1.0;
+    if(amount < 0)
+    {
+        throw bad_inputs();
+    }
+    if(currency == "usd" || currency == "USD")
+    {
+        return amount / usd_per_euro;
+    }
+    else if(currency == "stg" || currency == "STG")
+    {
+        return amount / stg_per_euro;
+    }
+    else if(currency == "jpy" || currency == "JPY")
+    {
+        return amount / jpy_per_euro;
+    }
+    else if(currency == "cny" || currency == "CNY")
+    {
+        return amount / cny_per_euro;
+    }
+    else{
+        throw bad_inputs();
+    }
 }
+
+/*resource: https://www.w3schools.com/cpp/default.asp*/

@@ -34,3 +34,13 @@ run03:
 	@echo Running bigsmall.exe
 	../../bin/bigsmall.exe
 	@echo
+
+#instructions for creating test.exe executable file after linking
+test.exe: test.cpp eurolib.cpp
+	g++ -o ../../bin/test.exe test.cpp harness.cpp
+#instruction to execute the test.exe file
+run04: 
+	@echo ---------------------
+	@echo Running test.exe
+	../../bin/test.exe
+	@echo
