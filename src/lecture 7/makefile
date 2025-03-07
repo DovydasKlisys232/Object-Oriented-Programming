@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: circle.exe
+all: circle.exe rectangle.exe
 
 #cleans out the bin folder containing the executables
 clean:
@@ -13,4 +13,14 @@ run01:
 	@echo ---------------------
 	@echo Running circle.exe
 	../../bin/circle.exe
+	@echo
+
+#instructions for creating rectangle.exe executable file
+rectangle.exe: rectangle.cpp
+	g++ -o ../../bin/rectangle.exe rectangle.cpp
+#instruction to execute the rectangle.exe file
+run02: 
+	@echo ---------------------
+	@echo Running rectangle.exe
+	../../bin/rectangle.exe
 	@echo
