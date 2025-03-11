@@ -21,7 +21,7 @@ int main()
 
     point p2(p1) ;
 
-    cout << p1 << "\n"; //should print (2,6)
+    cout << p2 << "\n"; //should print (2,6)
 
     p2.rotate( (point){1,1}, 90*M_PI/180 ) ;
 

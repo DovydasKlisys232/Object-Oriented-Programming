@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: harness.exe 
+all: harness.exe planets.exe
 
 #cleans out the bin folder containing the executables
 clean:
@@ -13,4 +13,14 @@ run01:
 	@echo ---------------------
 	@echo Running harness.exe
 	../../bin/harness.exe
+	@echo
+
+#instructions for creating planets.exe executable file after linking
+planets.exe: planets.cpp 
+	g++ -o ../../bin/planets.exe planets.cpp 
+#instruction to execute the planets.exe file
+run02: 
+	@echo ---------------------
+	@echo Running planets.exe
+	../../bin/planets.exe
 	@echo

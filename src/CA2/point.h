@@ -17,7 +17,7 @@ namespace geom
             point(double x, double y) : x_cord(x), y_cord(y) {}
 
             //point object that takes in anther point
-            point(point& p) : point(p.x_cord, p.y_cord) {}
+            point(point& p_new) : point(p_new.x_cord, p_new.y_cord) {}
 
             //getter function which returns the x and y co-ordinates of a point
             double x() {return x_cord;} 
@@ -45,26 +45,28 @@ namespace geom
             }
 
             //overloaded operator that prints the x and y co-ordinates in a clear format
+            //defined as a friend so that it can utilize private members
             friend ostream& operator<<(ostream& os, const point &p)
             {
                 return os << '(' << p.x_cord << ',' << p.y_cord << ')';
             }
 
-            // the following function will rotate a point around another specified point
+            //rotation function
+            //first calculates angle to be used in rotation formula
+            //original point is translated back to origin
+            //rotation formula is applied
+            //point translated back to original location relative to origin
             void rotate(const point& center, double angle) 
             {
                 double s = sin(angle);
                 double c = cos(angle);
 
-                // Translate point back to origin
                 x_cord -= center.x_cord;
                 y_cord -= center.y_cord;
 
-                // Rotate point
                 double x_new = x_cord * c - y_cord * s;
                 double y_new = x_cord * s + y_cord * c;
 
-                // Translate point back to its original location
                 x_cord = x_new + center.x_cord;
                 y_cord = y_new + center.y_cord;
             }
