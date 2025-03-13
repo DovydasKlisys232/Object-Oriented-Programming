@@ -9,6 +9,7 @@ using namespace std;
 namespace geom
 {
     class point{
+        //private members for gathering co-ordinates, set as double for more precise co-ordinates
         private:
             double x_cord;
             double y_cord;
@@ -20,8 +21,8 @@ namespace geom
             point(point& p_new) : point(p_new.x_cord, p_new.y_cord) {}
 
             //getter function which returns the x and y co-ordinates of a point
-            double x() {return x_cord;} 
-            double y() {return y_cord;}
+            double x() const {return x_cord;} 
+            double y() const {return y_cord;}
 
             //getter function which returns an angle (in rads) between the point and origin
             double angle() {return atan2(y_cord,x_cord);}
@@ -46,29 +47,34 @@ namespace geom
 
             //overloaded operator that prints the x and y co-ordinates in a clear format
             //defined as a friend so that it can utilize private members
-            friend ostream& operator<<(ostream& os, const point &p)
+            friend ostream& operator<<(ostream& os, point &p)
             {
                 return os << '(' << p.x_cord << ',' << p.y_cord << ')';
             }
 
-            //rotation function
+            //rotation function for rotating earth around the sun (origin)
+            //utilizes radius and the angle to make rotation
+            //produces a new x co-ordinate and y co-ordinate after rotation formula
+            //overwrites the x and y co-ordinates with new values
+            void rotate(double theta)
+            {
+                double r = radius();
+                double new_angle = theta + angle();
+                
+                x_cord = r * cos(new_angle);
+                y_cord = r * sin(new_angle);
+            }
+
+            //rotation function for rotating the moon around the earth
             //first calculates angle to be used in rotation formula
             //original point is translated back to origin
             //rotation formula is applied
             //point translated back to original location relative to origin
-            void rotate(const point& center, double angle) 
+            void rotate(const point& p, double theta) 
             {
-                double s = sin(angle);
-                double c = cos(angle);
-
-                x_cord -= center.x_cord;
-                y_cord -= center.y_cord;
-
-                double x_new = x_cord * c - y_cord * s;
-                double y_new = x_cord * s + y_cord * c;
-
-                x_cord = x_new + center.x_cord;
-                y_cord = y_new + center.y_cord;
+                translate(-p.x(), -p.y());
+                rotate(theta);
+                translate(p.x(), p.y());
             }
     };
 }

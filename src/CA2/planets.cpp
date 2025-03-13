@@ -15,7 +15,7 @@ using namespace std;
 
 //macros for days of the year and days for moon to make full rotation
 #define year 365
-#define moon_days 27.3
+#define moon_days 27
 
 //first the initial positions of the sun, earth and moon are set
 //then the main program loops through each day of the year.
@@ -25,18 +25,28 @@ using namespace std;
 //after the program has looped through each day of the year, it prints out the final position of the moon
 int main() {
     point sun(0,0);
-    point earth(193000000,0);
-    point moon(193384000,0);
+    point earth(193.00,0);
+    point moon(193.00,0);
 
-    for(int day=0; day <= year; day++)
+    moon.translate(0.384,0);
+
+    double earth_angle = ((2*M_PI) / year); 
+    double moon_angle = ((2*M_PI) / moon_days);
+
+    cout<<fixed<<setprecision(3);
+    cout<<"Initial: "<<"\n"
+        <<"earth: "<<earth
+        <<"\n"<<"moon: "<<moon
+        <<"\n|---------------------------------------|\n";
+
+
+    for(int day=1; day <= year; day++)
     {
-        double earth_angle = day * ((2*M_PI) / year); 
-        double moon_angle = day * ((2*M_PI) / moon_days);
-
-        earth.rotate(sun, earth_angle);
+        earth.rotate(earth_angle);
+        moon.rotate(earth_angle);
         moon.rotate(earth, moon_angle);
 
-        cout<<fixed<<setprecision(4);
+        cout<<fixed<<setprecision(3);
         cout<<"day: "<<day<<"\n"
             <<"earth: "<<earth
             <<"\n"<<"moon: "<<moon

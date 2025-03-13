@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: circle.exe rectangle.exe
+all: circle.exe rectangle.exe person.exe triangle.exe
 
 #cleans out the bin folder containing the executables
 clean:
@@ -23,4 +23,24 @@ run02:
 	@echo ---------------------
 	@echo Running rectangle.exe
 	../../bin/rectangle.exe
+	@echo
+
+#instructions for creating person.exe executable file
+person.exe: person.cpp
+	g++ -o ../../bin/person.exe person.cpp
+#instruction to execute the person.exe file
+run03: 
+	@echo ---------------------
+	@echo Running person.exe
+	../../bin/person.exe
+	@echo
+
+#instructions for creating triangle.exe executable file
+triangle.exe: triangle.cpp
+	g++ -o ../../bin/triangle.exe triangle.cpp
+#instruction to execute the triangle.exe file
+run04: 
+	@echo ---------------------
+	@echo Running triangle.exe
+	../../bin/triangle.exe
 	@echo
