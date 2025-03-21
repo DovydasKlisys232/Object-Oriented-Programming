@@ -1,0 +1,9 @@
+#instructions for creating state.exe executable file
+state.exe: state.cpp
+	g++ -o ../../bin/state.exe state.cpp
+#instruction to execute the state.exe file
+run05: 
+	@echo ---------------------
+	@echo Running state.exe
+	../../bin/state.exe
+	@echo

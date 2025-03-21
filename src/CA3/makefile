@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: harness.exe orbit.exe
+all: harness.exe 
 
 #cleans out the bin folder containing the executables
 clean:
@@ -13,14 +13,4 @@ run01:
 	@echo ---------------------
 	@echo Running harness.exe
 	../../bin/harness.exe
-	@echo
-
-#instructions for creating orbit.exe executable file after linking
-orbit.exe: orbit.cpp 
-	g++ -o ../../bin/orbit.exe orbit.cpp 
-#instruction to execute the orbit.exe file
-run02: 
-	@echo ---------------------
-	@echo Running orbit.exe
-	../../bin/orbit.exe
 	@echo

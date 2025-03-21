@@ -1,0 +1,9 @@
+#instructions for creating triangle.exe executable file
+triangle.exe: triangle.cpp
+	g++ -o ../../bin/triangle.exe triangle.cpp
+#instruction to execute the triangle.exe file
+run03: 
+	@echo ---------------------
+	@echo Running triangle.exe
+	../../bin/triangle.exe
+	@echo

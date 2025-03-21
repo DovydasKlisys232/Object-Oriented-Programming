@@ -1,0 +1,9 @@
+#instructions for creating virtual.exe executable file after linking
+virtual.exe: virtual.cpp 
+	g++ -o ../../bin/virtual.exe virtual.cpp 
+#instruction to execute the virtual.exe file
+run04: 
+	@echo ---------------------
+	@echo Running virtual.exe
+	../../bin/virtual.exe
+	@echo

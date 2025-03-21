@@ -1,0 +1,9 @@
+#instructions for creating read.exe executable file after linking
+read.exe: read.cpp 
+	g++ -o ../../bin/read.exe read.cpp 
+#instruction to execute the read.exe file
+run01: 
+	@echo ---------------------
+	@echo Running read.exe
+	../../bin/read.exe
+	@echo

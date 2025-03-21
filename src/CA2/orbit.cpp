@@ -20,8 +20,9 @@ using namespace std;
 //first the initial positions of the sun, earth and moon are set
 //then the main program loops through each day of the year.
 //the angle that the earth rotates by accross the sun is calculated 'earth_angle'
-//same is done for the moon as it rotates around the earth
-//precision is set at 4 decimal points, it also prints out the position of the earth and moon after each day
+//moon is rotated around the sun aswell, to make it stay same distance away from earth (0.384)
+//moon is rotated around the earth by its won angle 'moon_angle'
+//precision is set at 3 decimal points, it also prints out the position of the earth and moon after each day
 //after the program has looped through each day of the year, it prints out the final position of the moon
 int main() {
     point sun(0,0);
@@ -34,11 +35,9 @@ int main() {
     double moon_angle = ((2*M_PI) / moon_days);
 
     cout<<fixed<<setprecision(3);
-    cout<<"Initial: "<<"\n"
-        <<"earth: "<<earth
-        <<"\n"<<"moon: "<<moon
-        <<"\n|---------------------------------------|\n";
-
+    cout<<"Earth"<<setw(25)
+        <<"Moon\n"<<earth
+        <<setw(10)<<moon<<"\n";
 
     for(int day=1; day <= year; day++)
     {
@@ -47,10 +46,7 @@ int main() {
         moon.rotate(earth, moon_angle);
 
         cout<<fixed<<setprecision(3);
-        cout<<"day: "<<day<<"\n"
-            <<"earth: "<<earth
-            <<"\n"<<"moon: "<<moon
-            <<"\n|---------------------------------------|\n";
+        cout<<earth<<setw(10)<<moon<<"\n";
     }
 
     cout<<"final moon position: "<<moon<<"\n";
