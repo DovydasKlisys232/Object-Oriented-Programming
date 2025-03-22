@@ -18,9 +18,23 @@ int main() {
         Date d(2005, Date::dec, 22);
         Time t(12, 22);
         cout << d << " " << t << "\n";
-        Date d2(2012, Date::apr, 2);
+        Date d2(2024, Date::feb, 29);
         Time t2(23, 0);
         cout << d2 << " " << t2 << "\n";
+
+        Event e(Date(2024,Date::mar,12), Time(15, 0), Time(16, 0), "Boardroom A");
+        e.add_attendee("Sam Smith");
+        e.add_attendee("David James");
+        e.add_attendee("Robert Frost");
+        cout << e << "\n";
+
+        Meeting m( Date(2024, Date::mar, 12), Time(15,0), Time(16,0),
+        "Boardroom A", "Patti Higgins");
+        m.add_attendee("Leighton Washington");
+        m.add_attendee("Zavier Austin");
+        m.add_attendee("Alexis Massey");
+        cout << m;
+
     } 
     catch(Time::Bad_time) 
     {
