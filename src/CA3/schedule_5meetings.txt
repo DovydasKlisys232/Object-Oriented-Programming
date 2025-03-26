@@ -1,0 +1,6 @@
+M,2024-03-12,15:00,16:00,Boardroom A,Patti Higgins,Leighton Washington,Zavier Austin,Alexis Massey
+M,2024-03-12,16:00,17:00,Boardroom B,Patti Higgins,Eva Cooper,Carmen Brooks
+M,2024-03-13,09:00,10:00,Boardroom B,Leighton Washington,Zavier Austin
+M,2024-03-13,10:00,11:00,Boardroom B,Leighton Washington,Patti Higgins
+M,2024-03-13,10:00,11:00,Research Lab,Alexis Massey,Patti Higgins
+M,2024-03-13,10:00,12:00,Cafeteria,Eva Cooper,Carmen Brooks,Alexis Massey

@@ -1,5 +1,5 @@
 #instruction for creating every executable file
-all: animal.exe cat.exe default.exe virtual.exe
+all: animal.exe cat.exe default.exe virtual.exe pure.exe
 
 #cleans out the bin folder containing the executables
 clean:
@@ -43,4 +43,14 @@ run04:
 	@echo ---------------------
 	@echo Running virtual.exe
 	../../bin/virtual.exe
+	@echo
+
+#instructions for creating pure.exe executable file after linking
+pure.exe: pure.cpp 
+	g++ -o ../../bin/pure.exe pure.cpp 
+#instruction to execute the pure.exe file
+run05: 
+	@echo ---------------------
+	@echo Running pure.exe
+	../../bin/pure.exe
 	@echo

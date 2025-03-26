@@ -17,19 +17,29 @@ class cat : public animal
 {
     public: 
         cat(string nn) : animal(nn) {
-            cout << name << ": Making an animal.\n";
-    }
+            cout << name << ": Making a cat.\n";
+        }
         void eat() override{cout << name << " is chewing a rat.\n"; }
+};
+
+class dog : public animal
+{
+    public:
+        dog(string nn) : animal(nn) {
+            cout << name << ": Making a dog.\n";
+        }
+        void eat() override{cout << name << " is chewing on bone.\n"; }
 };
 
 int main()
 {
     cat hh("henry");
     cat mm("Mr Snuffles");
+    dog dd("Drake");
     cout<<"\n";
 
-    animal *lunch_list[] = {&hh, &mm};
-    for (int i=0; i<2; i++)
+    animal *lunch_list[] = {&hh, &mm, &dd};
+    for (int i=0; i<3; i++)
     {
         lunch_list[i]->eat();
     }

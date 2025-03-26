@@ -1,8 +1,8 @@
 #ifndef __SCHEDULER_H__
 #define __SCHEDULER_H__
 
-#include<iostream>
-#include<iomanip>
+#include<iostream> //standard library functions
+#include<iomanip> //
 #include<vector>
 
 using namespace std;
@@ -12,6 +12,7 @@ namespace scheduler
     {
         public:
             class Bad_Date { }; //exception class
+            //Month enum to keep related values together
             enum Month {
                 jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
                 };
@@ -19,7 +20,13 @@ namespace scheduler
             Date(int yy, Month mm, int dd) : y(yy), m(mm), d(dd) {
                 if (!check(y,m,d))
                     throw Bad_Date() ;
-             };
+            };
+
+            //Additional constructor that takes month as an integer
+            Date(int yy, int mm, int dd) : y(yy), m(Month(mm)), d(dd) {
+                if (!check(y, m, d))
+                    throw Bad_Date();  
+            };
             
             //getter functions
             Month month() { return m; }
@@ -28,68 +35,20 @@ namespace scheduler
             //operator for formatting the Date object output
             friend ostream& operator<<(ostream& os, Date &D)
             {
-                return os << D.d << "/" << D.m << "/" << D.y;
+                return os << D.day() << "/" << D.month() << "/" << D.year();
             }
         private:
             int y, d;
             Month m;
-            bool check(int y, Month m, int d);
+            bool check(int y, Month m, int d); //checks if date is valid, defined in scheduler.cpp
     };
-    //checker function used in constructor
-    bool Date::check(int y, Month m, int d)
-    {
-        //check if year is valid
-        //range between 1990 to 2050
-        if(y < 1990 || y > 2050)
-            return false;
-
-        //check if month is valid (from jan to dec)
-        if(m > 12 || m < 1)
-            return false;
-
-        //check if day is valid depending on what month it is
-        if(m == jan || m == mar || m == may || m == jul || m == aug || m == oct || m ==dec)
-        {
-            if(d > 31 || d < 1)
-            {
-                return false;
-            }
-        }
-        //if month = feb check for leap year and if day is valid
-        if(m == feb)
-        {
-            if((y % 4 == 0 || y % 400 == 0) && (y % 100 != 0))
-            {
-                if(d > 29 || d < 1)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(d > 28 || d < 1)
-                {
-                    return false;
-                }
-            }
-        }
-        //check if day is valid for following months
-        if(m == apr || m == jun || m == sep || m == nov)
-        {
-            if(d > 30 || d < 1)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
 
     class Time 
     {
         private:
             int hours;
             int minutes;
-            bool check(int hours, int minutes);
+            bool check(int hours, int minutes); //checks if time is valid, defined in scheduler.cpp
         public:
             class Bad_time { }; //exception class
             //constructor
@@ -104,14 +63,9 @@ namespace scheduler
             //operator for formatting Time object output
             friend ostream& operator<<(ostream& os, Time &T)
             {
-                return os << T.hours << ":" << setfill('0') << setw(2) << T.minutes << ":" << setfill('0') << setw(3);
+                return os << T.get_hours() << ":" << setfill('0') << setw(2) << T.get_minutes() << ":" << setfill('0') << setw(2) << "00";
             }
     };
-
-    //checker function used in Time constructor
-    bool Time::check(int hours, int minutes) {
-        return (hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60);
-    }
 
     class Event
     {
@@ -125,10 +79,13 @@ namespace scheduler
         public:
             Event(Date d, Time st, Time et, string l) : date(d), start_time(st), end_time(et), location(l) { }
 
+            //function pushes a string parameter into string vector attendee
             void add_attendee(const string &att){
                 attendee.push_back(att);
             }
-
+            
+            //print function that formats the display structure for an Event object
+            //virtual so derived classes can override it 
             virtual void print()
             {
                 cout << "Date: " << date << ", Start Time: " << start_time << ", End Time: " << end_time << ", Location: " << location
@@ -141,6 +98,7 @@ namespace scheduler
                 } 
             }
 
+            //operator that prints contents of event on one line
             friend ostream& operator<<(ostream& os, Event &E)
             {
                 E.print();
@@ -153,14 +111,19 @@ namespace scheduler
         private:
             string chair;
         public:
+            //constructor, takes event constructor and adds chair variable to it
             Meeting(Date d, Time st, Time et, string l, string c) : Event(d, st, et, l), chair(c) { }
 
-            void print() override
+            //event print function overriden to include chair
+            void print()
             {
                 Event::print();
                 cout << ", Chair: " << chair;
             }
     };
+
+    //forward decleration of load function
+    vector<Meeting> load(const string& filename);
 }
 
 #endif // __SCHEDULER_H__
