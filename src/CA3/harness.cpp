@@ -146,6 +146,16 @@ int main() {
         cerr << "Bad Date.\n";
     }
 
+    cout << "\n\nLoading Function: \n";
+
+    //this code will test if the load function reads the whole text file correctly
+    vector<Meeting> mt = load("schedule_5meetings.txt") ;
+    for ( unsigned i=0; i<mt.size(); i++) {
+
+        cout << mt[i] << "\n\n";
+
+    }
+
     return 0;
 
 }
