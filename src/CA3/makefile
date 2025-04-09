@@ -12,5 +12,5 @@ harness.exe: harness.cpp scheduler.cpp
 run01: 
 	@echo ---------------------
 	@echo Running harness.exe
-	../../bin/harness.exe
+	../../bin/harness.exe 
 	@echo

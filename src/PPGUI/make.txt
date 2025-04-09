@@ -1,0 +1,13 @@
+#instructions for creating fltk.exe executable file after linking
+fltk.exe: fltk.cpp
+	g++ -I/mingw64/include fltk.cpp -L/mingw64/lib -lfltk -mwindows -o ../../ppgui/fltk.exe
+#link fltk.exe with missing lld
+link1:
+	export PATH=$PATH:/mingw64/bin
+	../../ppgui/fltk.exe
+#instruction to execute the fltk.exe file
+run01: 
+	@echo ---------------------
+	@echo Running fltk.exe
+	../../ppgui/fltk.exe
+	@echo
